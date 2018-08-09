@@ -34,4 +34,25 @@ get '/say/:word1/:word2/:word3/:word4/:word5' do
    "#{@w1} #{@w2} #{@w3} #{@w4} #{@w5}"
 end
 
+get '/:operation/:number1/:number2' do
+  @operation = params[:operation]
+    @n1 = params[:number1].to_i
+    @n2 = params[:number2].to_i
+  case @operation
+when 'add'
+  @answer = @n1 + @n2
+
+when 'subtract'
+  @answer = @n1 - @n2
+
+when 'multiply'
+  @answer = @n1 * @n2
+
+when 'divide'
+  @answer = @n1 / @n2
+end
+
+"Answer is #{@answer}"
+end
+
 end
